@@ -2,7 +2,7 @@ from email.mime import base
 import imp
 from PIL import Image, ImageFilter, ImageDraw
 # Spec working folders
-baseImg = Image.open('/home/Documents/code/python/img/base.img')
+baseImg = Image.open('/home/Documents/code/python/img/base.jpg')
 frameImg = Image.open('/home/Documents/code/python/img/frame.webp')
 #Paste
 baseImg.paste(frameImg)
