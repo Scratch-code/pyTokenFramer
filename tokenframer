@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image,ImageDraw,ImageFilter
 import os, os.path
 #get images
 imgs = []
@@ -9,3 +9,13 @@ for f in os.listdir(path):
     if ext.lower() not in valid_images:
         continue
     imgs.append(Image.open(os.path.join(path,f)))
+    frameImg = Image.open("/home/Documents/code/python/img/frame.webp")
+    frameImg.paste(imgs)
+   # Split our original filename into name and extension
+(name, extension) = os.path.splitext(path)
+
+    # Save with "_changed" added to the filename
+imgs.save(name + '_changed' + extension)
+
+    # Save the image as a JPG
+imgs.save(name + '.jpg')
