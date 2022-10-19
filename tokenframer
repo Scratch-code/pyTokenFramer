@@ -1,25 +1,11 @@
-
-from PIL import Image, ImageFilter, ImageDraw
-import sys
-import os.path
-
-#Loop
-for i in range(1, len(sys.argv)):
-        # Attempt to open an image file
-        filepath = sys.argv[i]
-        image = Image.open(filepath)
-
-    
-# specify top image to paste
-
-topImage = Image.open(filepath)
-#Paste
-image.paste(topImage)
-   # Split our original filename into name and extension
-(name, extension) = os.path.splitext(filepath)
-    
-    # Save with "_changed" added to the filename
-image.save(name + '_changed' + extension)
-    
-    # Save the image as a JPG
-image.save(name + '.jpg')
+from PIL import Image
+import os, os.path
+#get images
+imgs = []
+path = "/home/ben/Documents/code/python/img"
+valid_images = [".jpg",".gif",".png",".tga"]
+for f in os.listdir(path):
+    ext = os.path.splitext(f)[1]
+    if ext.lower() not in valid_images:
+        continue
+    imgs.append(Image.open(os.path.join(path,f)))
